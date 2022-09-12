@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import skill_tracker.views
+import yeet.views
+
+
+
 
 urlpatterns = [
+    path('', skill_tracker.views.index, name='index'),
+    path('', yeet.views.index, name='index'),
     path('admin/', admin.site.urls),
 ]
