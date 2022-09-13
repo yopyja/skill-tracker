@@ -1,4 +1,6 @@
 /data
 /backend/__pycache__
 /skill_tracker/__pycache__
+/skill_tracker/migrations
 /api/__pycache__
+/api/migrations
