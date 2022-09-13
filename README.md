@@ -1,7 +1,54 @@
-# 367 Skill Tracker // Knack Overflow
+# 367 Skill Tracker // StatTrak
 
-Unix System Pref for Dev
+## Arch System Pref for Dev
 
-Docker
-VS Code
-DBeaver
+## Apps
+ - Docker
+ - VS Code
+ - DBeaver
+
+```sh
+// Install the following packages
+$ sudo pacman -Syu
+$ sudo pacman -S git docker docker-compose go code base-devel 
+
+$ reboot
+```
+
+```
+// Start docker and enable it on boot
+$ sudo systemctl start docker.service
+$ sudo systemctl enable docker.service
+
+// Add docker to account so sudo isnt needed
+$ sudo usermod -aG docker $USER
+
+$ reboot
+```
+
+Happy
+```sh
+$ cd Downloads
+$ git clone https://aur.archlinux.org/snapd.git
+$ cd snapd
+$ makepkg -s
+$ sudo pacman -U snapd-2.57.2-1-x86_64.pkg.tar.zst 
+$ sudo systemctl enable snapd
+$ reboot
+$ sudo snap install spotify
+
+$ cd Downloads
+$ git clone https://aur.archlinux.org/gti.git
+$ cd gti
+$ makepkg -s
+$ sudo pacman -U gti-1.7.0-2-x86_64.pkg.tar.zst
+$ gti pull
+```
+
+
+VSCode extensions
+ - ESLint
+ - Git Lens
+ - docGo
+ - Material Icon Theme
+ - Tokyo Night

@@ -1,0 +1,4 @@
+{
+    "connection_string": "postgres_container",
+    "port": 3000
+}
