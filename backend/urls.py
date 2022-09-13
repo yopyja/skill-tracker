@@ -14,15 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-import skill_tracker.views
-import yeet.views
+from django.urls import path, include
+# import skill_tracker.views
+# import yeet.views
 
 
 
 
 urlpatterns = [
-    path('', skill_tracker.views.index, name='index'),
-    path('', yeet.views.index, name='index'),
+    path('', include('api.urls')),
+    path('api/', include('api.urls')),
+    path('skill_tracker/', include('skill_tracker.urls')),
+    # path('', api.views.index, name='index'),
     path('admin/', admin.site.urls),
 ]

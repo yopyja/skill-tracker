@@ -1,2 +1,9 @@
 /data
 /backend/__pycache__
+<<<<<<< HEAD
+=======
+/skill_tracker/__pycache__
+/skill_tracker/migrations
+/api/__pycache__
+/api/migrations
+>>>>>>> f3b743f5e3c01e4059b8147f062ca0501887630f
