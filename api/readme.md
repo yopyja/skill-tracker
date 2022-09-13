@@ -24,3 +24,7 @@ go get -u github.com/spf13/viper
 
  - Viper is a configurations manager that helps us to load file and environment defined values into the application’s runtime. There will be seperate article about Viper too!
 
+
+
+
+

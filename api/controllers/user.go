@@ -25,3 +25,12 @@ func checkIfUserExist(userID string) bool {
 	}
 	return true
 }
+
+
+func GetUsers(w http.ResponseWriter, r *http.Request) {
+	var user []entities.User
+	database.Instance.Find(&user)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(user)
+}

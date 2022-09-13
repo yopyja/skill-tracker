@@ -45,10 +45,25 @@ $ sudo pacman -U gti-1.7.0-2-x86_64.pkg.tar.zst
 $ gti pull
 ```
 
+Req. for Live Share
+```sh
+$ sudo pacman -S gcr liburcu openssl-1.0 krb5 zlib icu gnome-keyring libsecret desktop-file-utils xorg-xprop
+
+$ cd Downloads
+$ git clone https://aur.archlinux.org/icu69.git
+$ makepkg -s
+$ sudo pacman -U icu69-69.1-1-x86_64.pkg.tar.zst 
+
+```
+
 
 VSCode extensions
  - ESLint
  - Git Lens
- - docGo
+ - Go
  - Material Icon Theme
  - Tokyo Night
+ - Rest Client
+ - YAML
+ - Docker
+ - Live Share

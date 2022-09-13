@@ -52,9 +52,9 @@ func LoadAppConfig(){
 
 
 func RegisterProductRoutes(router *mux.Router) {
-	//router.HandleFunc("/api/user", controllers.GetProducts).Methods("GET")
+	router.HandleFunc("/api/users", controllers.GetUsers).Methods("GET")
 	//router.HandleFunc("/api/user/{id}", controllers.GetProductById).Methods("GET")
-	router.HandleFunc("/api/user", controllers.CreateUser).Methods("POST")
+	//router.HandleFunc("/api/user", controllers.CreateUser).Methods("POST")
 	//router.HandleFunc("/api/user/{id}", controllers.UpdateProduct).Methods("PUT")
 	//router.HandleFunc("/api/user/{id}", controllers.DeleteProduct).Methods("DELETE")
 }

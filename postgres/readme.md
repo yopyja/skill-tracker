@@ -40,3 +40,25 @@ Host: `postgres_container`
 Pass: `secret`
 
 Save: `true`
+
+---
+
+Create Virtual Docker Netowrk
+
+```sh
+docker network create <name-of-network>
+docker network connect <name-of-network> <name-of-container>
+docker netowrk inspect <name-of-network>
+```
+
+---
+
+Docker stop / kill / reset all settings
+
+```sh
+docker stop <container-name>
+docker rmi -f <image-name-or-id> 
+docker image rm <image-id>
+
+docker system prune --all --force --volumes
+```
