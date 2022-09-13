@@ -20,7 +20,7 @@ class Organization(models.Model):
 
 class Roles(models.Model):
     role_id = models.AutoField(primary_key=True)
-    org_id = models.ForeignKey(Organization.org_id)
+    org_id = models.ForeignKey(Organization.org_id, on_delete=models.PROTECT)
     is_team = models.BooleanField()
 
 class Sub_Permissions(models.Model):
@@ -30,7 +30,7 @@ class Sub_Permissions(models.Model):
 class Granted_Permissions(models.Model):
     granted_permissions_id = models.AutoField(primary_key=True)
     is_user = models.BooleanField()
-    sub_permissions_id = models.ForeignKey(Sub_Permissions.sub_permissions_id)
+    sub_permissions_id = models.ForeignKey(Sub_Permissions.sub_permissions_id, on_delete=models.PROTECT)
     entity_id = models.IntegerField()
 
 class User(models.Model):
@@ -59,23 +59,23 @@ class Sub_Rating_Types(models.Model):
 
 class Logging(models.Model):
     logging_id = models.AutoField(primary_key=True)
-    user_id = models.ForeignKey(User.user_id, null=True)
-    skill_id = models.ForeignKey(Skill.skill_id, null=True)
+    user_id = models.ForeignKey(User.user_id, null=True, on_delete=models.PROTECT)
+    skill_id = models.ForeignKey(Skill.skill_id, null=True, on_delete=models.PROTECT)
     in_training = models.BooleanField(null=True)
     date = models.DateTimeField
     action = models.CharField(max_length=75)
     
 class Assoc_User_Skills(models.Model):
     user_skill_id = models.AutoField(primary_key=True)
-    user_id = models.ForeignKey(User.user_id)
-    skill_level_id = models.ForeignKey(Skill_Level)
+    user_id = models.ForeignKey(User.user_id, on_delete=models.PROTECT)
+    skill_level_id = models.ForeignKey(Skill_Level.skill_level_id, on_delete=models.PROTECT)
 
 class Assoc_User_Teams(models.Model):
     team_user_id = models.AutoField(primary_key=True)
-    user_id = models.ForeignKey(User.user_id)
-    team_id = models.ForeignKey(Team.team_id)
+    user_id = models.ForeignKey(User.user_id, on_delete=models.PROTECT)
+    team_id = models.ForeignKey(Team.team_id, on_delete=models.PROTECT)
     
 class Assoc_Group_Skills(models.Model):
     group_skill_id = models.AutoField(primary_key=True)
-    skill_group_id = models.ForeignKey(Skill_Group.skill_group_id)
+    skill_group_id = models.ForeignKey(Skill_Group.skill_group_id, on_delete=models.PROTECT)
     skill_id = models.ForeignKey(Skill.skill_id)
