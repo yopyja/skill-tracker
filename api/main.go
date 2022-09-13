@@ -1,60 +1,40 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
-	"rest-api/database"
-	"rest-api/controllers"
 
-	"github.com/gorilla/mux"
-	"github.com/spf13/viper"
+	"github.com/gin-gonic/gin"
+	"github.com/wpcodevo/golang-gorm-postgres/initializers"
 )
 
-type Config struct {
-	Port             string `mapstructure:"port"`
-	ConnectionString string `mapstructure:"connection_string"`
-}
+var (
+	server *gin.Engine
+)
 
+func init() {
+	config, err := initializers.LoadConfig(".")
+	if err != nil {
+		log.Fatal("🚀 Could not load environment variables", err)
+	}
+
+	initializers.ConnectDB(&config)
+
+	server = gin.Default()
+}
 
 func main() {
-	// Load Configurations from config.json using Viper
-	LoadAppConfig()
-	// Initialize Database
-	database.Connect(AppConfig.ConnectionString)
-	database.Migrate()
-	
-	// Initialize the router
-	router := mux.NewRouter().StrictSlash(true)
-	// Register Routes
-	RegisterProductRoutes(router)
-	// Start the server
-	log.Println(fmt.Sprintf("Starting Server on port %s", AppConfig.Port))
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%v", AppConfig.Port), router))
-}
-
-
-var AppConfig *Config
-func LoadAppConfig(){
-	log.Println("Loading Server Configurations...")
-	viper.AddConfigPath(".")
-	viper.SetConfigName("config")
-	viper.SetConfigType("json")
-	err := viper.ReadInConfig()
+	config, err := initializers.LoadConfig(".")
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("🚀 Could not load environment variables", err)
 	}
-	err = viper.Unmarshal(&AppConfig)
-	if err != nil {
-		log.Fatal(err)
-	}
+
+	router := server.Group("/api")
+	router.GET("/healthchecker", func(ctx *gin.Context) {
+		message := "Lookin good 🍺"
+		ctx.JSON(http.StatusOK, gin.H{"status": "success", "message": message})
+	})
+
+	log.Fatal(server.Run(":" + config.ServerPort))
 }
 
-
-func RegisterProductRoutes(router *mux.Router) {
-	router.HandleFunc("/api/users", controllers.GetUsers).Methods("GET")
-	//router.HandleFunc("/api/user/{id}", controllers.GetProductById).Methods("GET")
-	//router.HandleFunc("/api/user", controllers.CreateUser).Methods("POST")
-	//router.HandleFunc("/api/user/{id}", controllers.UpdateProduct).Methods("PUT")
-	//router.HandleFunc("/api/user/{id}", controllers.DeleteProduct).Methods("DELETE")
-}

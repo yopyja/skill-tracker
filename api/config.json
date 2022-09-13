@@ -1,4 +1,0 @@
-{
-    "connection_string": "admin:secret@tcp(db:5432)/postgres",
-    "port": 3000
-}

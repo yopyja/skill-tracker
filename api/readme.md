@@ -26,5 +26,9 @@ go get -u github.com/spf13/viper
 
 
 
+https://codevoweb.com/setup-golang-gorm-restful-api-project-with-postgres/
+
+https://github.com/cosmtrek/air
+
 
 

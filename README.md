@@ -66,4 +66,6 @@ VSCode extensions
  - Rest Client
  - YAML
  - Docker
+ - DotENV
+ - TabOut
  - Live Share
