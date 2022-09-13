@@ -30,7 +30,7 @@ class Sub_Permissions(models.Model):
 class Granted_Permissions(models.Model):
     granted_permissions_id = models.AutoField(primary_key=True)
     is_user = models.BooleanField()
-    sub_permissions_id = models.ForeignKey(Sub_Permissions.sub_permissions_id, on_delete=models.PROTECT)
+    sub_permissions_id = models.ForeignKey(Sub_Permissions.sub_permissions_id, on_delete=models.CASCADE)
     entity_id = models.IntegerField()
 
 class User(models.Model):
@@ -39,6 +39,7 @@ class User(models.Model):
     last_name = models.CharField(max_length=50)
     prefix = models.CharField(max_length=5)
     position = models.CharField(max_length=50)
+    archived = models.BooleanField(null=False)
 
 class Skill_Level(models.Model):
     skill_level_id = models.AutoField(primary_key=True)
@@ -48,6 +49,7 @@ class Skill_Level(models.Model):
 class Skill(models.Model):
     skill_id = models.AutoField(primary_key=True)
     skill_label = models.CharField(max_length=75)
+    archived = models.BooleanField(null=False)
     
 class Skill_Group(models.Model):
     skill_group_id = models.AutoField(primary_key=True)
@@ -68,14 +70,14 @@ class Logging(models.Model):
 class Assoc_User_Skills(models.Model):
     user_skill_id = models.AutoField(primary_key=True)
     user_id = models.ForeignKey(User.user_id, on_delete=models.PROTECT)
-    skill_level_id = models.ForeignKey(Skill_Level.skill_level_id, on_delete=models.PROTECT)
+    skill_level_id = models.ForeignKey(Skill_Level.skill_level_id, on_delete=models.CASCADE)
 
 class Assoc_User_Teams(models.Model):
     team_user_id = models.AutoField(primary_key=True)
     user_id = models.ForeignKey(User.user_id, on_delete=models.PROTECT)
-    team_id = models.ForeignKey(Team.team_id, on_delete=models.PROTECT)
+    team_id = models.ForeignKey(Team.team_id, on_delete=models.CASCADE)
     
 class Assoc_Group_Skills(models.Model):
     group_skill_id = models.AutoField(primary_key=True)
-    skill_group_id = models.ForeignKey(Skill_Group.skill_group_id, on_delete=models.PROTECT)
+    skill_group_id = models.ForeignKey(Skill_Group.skill_group_id, on_delete=models.CASCADE)
     skill_id = models.ForeignKey(Skill.skill_id)
