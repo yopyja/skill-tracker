@@ -14,8 +14,10 @@ def index(request):
 @csrf_exempt
 def TeamApi(request, id=0):
     if request.method=='GET':
-        team = Team.objects.all()
-        team_serializer = TeamSerializer(team,many=True)
+        # team = Team.objects.all()
+        # team_serializer = TeamSerializer(team,many=True)
+        team = Team.objects.get(team_id=id)
+        team_serializer = TeamSerializer(team)
         return JsonResponse(team_serializer.data, safe=False)
     elif request.method=='POST':
         team_data=JSONParser().parse(request)
