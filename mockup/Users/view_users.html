@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
     <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -6,78 +8,133 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js" integrity="sha512-d6nObkPJgV791iTGuBoVC9Aa2iecqzJRE0Jiqvk85BhLHAPhWqkuBiQb1xz2jvuHNqHLYoN3ymPfpiB1o+Zgpw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script src="../Data"></script>
     <script>
-        $(document).ready(function(){
-            $('#testTable').DataTable();
+        // $(document).ready(function(){
+        //     $('#testTable').DataTable();
+        // });
+        var result = [];
+        for(var i in dataSet){
+            result.push([dataSet[i].first_name, dataSet[i].last_name, dataSet[i].email, dataSet[i].skill, dataSet[i].team]);
+        }
+        $(document).ready(function () {
+            $('#example').DataTable({
+                data: result,
+                columns: [
+                    { title: 'First Name' },
+                    { title: 'Last Name' },
+                    { title: 'Email' },
+                    { title: 'Team' },
+                    { title: 'Skill' },
+                ],
+            });
         });
+        
     </script>
-    <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-            </li>
-        </ul>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-        </div>
-    </div>
-    </nav>
+    
+    
 </head>
 <body>
-    <div class="container">
-        <table id="testTable" class="table table-striped table-bordered">
-            <thead>
-                <th>one</th>
-                <th>two</th>
-                <th>three</th>
-                <th>four</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>aaa</td>
-                    <td>bbb</td>
-                    <td>ccc</td>
-                    <td>ddd</td>
-                </tr>
-                <tr>
-                    <td>eee</td>
-                    <td>fff</td>
-                    <td>ggg</td>
-                    <td>hhh</td>
-                </tr>
-                <tr>
-                    <td>iii</td>
-                    <td>jjj</td>
-                    <td>kkk</td>
-                    <td>lll</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark mb-5">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            </div>
+        </div>
+    </nav>
+    <div class="px-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5># of qualified memers per skill</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myChart" width="200" height="200"></canvas>
+                    </div>
+                </div>  
+            </div> 
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5># of qualified memers per skill</h5>
+                    </div>
+                    <div class="card-body">
+                        <table id="example" class="display table table-sm table-striped table-condensed" width="100%"></table>
+                    </div>
+                </div>  
+            </div>
+        </div> 
+    </div> 
+
+    
 </body>
+<script>
+    const ctx = $('#myChart');
+        const myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['C#', 'Captivate', 'Photoshop', 'Premire', 'Motar', 'HTX'],
+                datasets: [{
+                    label: '# of Skills',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+</script>
+</html>
