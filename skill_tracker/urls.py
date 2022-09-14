@@ -18,5 +18,6 @@ from django.urls import path
 from skill_tracker import views
 
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', views.index, name='index'),    
+    path('team/', views.TeamApi),
 ]
