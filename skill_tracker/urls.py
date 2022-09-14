@@ -19,5 +19,5 @@ from skill_tracker import views
 
 urlpatterns = [
     path('', views.index, name='index'),    
-    path('team/', views.TeamApi),
+    path('team/<int:id>', views.TeamApi),
 ]
