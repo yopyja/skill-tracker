@@ -30,5 +30,6 @@ https://codevoweb.com/setup-golang-gorm-restful-api-project-with-postgres/
 
 https://github.com/cosmtrek/air
 
-
-
+```
+./bin/air
+```
