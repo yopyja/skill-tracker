@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script
+            src="https://code.jquery.com/jquery-3.6.1.js"
+            integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+        
+        <!-- <script>
+            $(document).ready(function(){
+                $('#contentBody').load('./Home/view_home.html');  
+            });
+            function loadBodyContent(page){
+                $('#contentBody').load(page);
+            }
+            function changeBodyContent(_page){
+                window.location.replace(_page);
+            }
+        </script> -->
+        <script>
+            var dataSet = [{"id":1,"first_name":"Aveline","last_name":"Fillan","email":"afillan0@webs.com","team":"analyzing","skill":"Statistician I"},
+{"id":2,"first_name":"Jamal","last_name":"Haw","email":"jhaw1@alexa.com","team":"systemic","skill":"Research Associate"},
+{"id":3,"first_name":"Cecelia","last_name":"Wofenden","email":"cwofenden2@bloglovin.com","team":"needs-based","skill":"Information Systems Manager"},
+{"id":4,"first_name":"Leese","last_name":"Lange","email":"llange3@ow.ly","team":"maximized","skill":"Nurse"},
+{"id":5,"first_name":"Lela","last_name":"Steele","email":"lsteele4@yale.edu","team":"process improvement","skill":"Community Outreach Specialist"},
+{"id":6,"first_name":"Omar","last_name":"Zoanetti","email":"ozoanetti5@ifeng.com","team":"Monitored","skill":"Assistant Media Planner"},
+{"id":7,"first_name":"Stanislaw","last_name":"Jerams","email":"sjerams6@mit.edu","team":"architecture","skill":"Account Representative III"},
+{"id":8,"first_name":"Hendrik","last_name":"Server","email":"hserver7@time.com","team":"mission-critical","skill":"Sales Associate"},
+{"id":9,"first_name":"Tommi","last_name":"Copo","email":"tcopo8@imdb.com","team":"matrix","skill":"Engineer I"},
+{"id":10,"first_name":"Addy","last_name":"Van Salzberger","email":"avansalzberger9@trellian.com","team":"project","skill":"Legal Assistant"},
+{"id":11,"first_name":"Camille","last_name":"Sighart","email":"csigharta@miitbeian.gov.cn","team":"Graphic Interface","skill":"Design Engineer"},
+{"id":12,"first_name":"Vi","last_name":"Lampkin","email":"vlampkinb@hp.com","team":"next generation","skill":"Director of Sales"},
+{"id":13,"first_name":"Kamillah","last_name":"Greenrodd","email":"kgreenroddc@msu.edu","team":"scalable","skill":"Financial Advisor"},
+{"id":14,"first_name":"Arabella","last_name":"Sills","email":"asillsd@ycombinator.com","team":"Organized","skill":"Biostatistician IV"},
+{"id":15,"first_name":"Roseline","last_name":"Watkins","email":"rwatkinse@angelfire.com","team":"Optimized","skill":"Database Administrator II"},
+{"id":16,"first_name":"Bail","last_name":"Garioch","email":"bgariochf@wikipedia.org","team":"throughput","skill":"Senior Quality Engineer"},
+{"id":17,"first_name":"Arlie","last_name":"Keppie","email":"akeppieg@adobe.com","team":"service-desk","skill":"Electrical Engineer"},
+{"id":18,"first_name":"Erminie","last_name":"Huntington","email":"ehuntingtonh@shinystat.com","team":"coherent","skill":"Project Manager"},
+{"id":19,"first_name":"Christopher","last_name":"Steuhlmeyer","email":"csteuhlmeyeri@psu.edu","team":"Switchable","skill":"Senior Quality Engineer"},
+{"id":20,"first_name":"Olia","last_name":"Bromidge","email":"obromidgej@hp.com","team":"Assimilated","skill":"Dental Hygienist"},
+{"id":21,"first_name":"Joella","last_name":"Wandrich","email":"jwandrichk@microsoft.com","team":"maximized","skill":"Product Engineer"},
+{"id":22,"first_name":"Leo","last_name":"Mandeville","email":"lmandevillel@webnode.com","team":"disintermediate","skill":"Nurse"},
+{"id":23,"first_name":"Freddie","last_name":"Partleton","email":"fpartletonm@opensource.org","team":"impactful","skill":"Software Engineer I"},
+{"id":24,"first_name":"Raymund","last_name":"Bayne","email":"rbaynen@si.edu","team":"Pre-emptive","skill":"Nuclear Power Engineer"},
+{"id":25,"first_name":"Aldis","last_name":"Wyleman","email":"awylemano@berkeley.edu","team":"Ameliorated","skill":"Legal Assistant"},
+{"id":26,"first_name":"Rhianna","last_name":"McCaughey","email":"rmccaugheyp@economist.com","team":"attitude-oriented","skill":"Structural Analysis Engineer"},
+{"id":27,"first_name":"Patty","last_name":"Plan","email":"pplanq@ft.com","team":"grid-enabled","skill":"Electrical Engineer"},
+{"id":28,"first_name":"Rolando","last_name":"Manuely","email":"rmanuelyr@friendfeed.com","team":"Polarised","skill":"Nurse"},
+{"id":29,"first_name":"Jacki","last_name":"Mowbray","email":"jmowbrays@goo.gl","team":"Organic","skill":"Recruiter"},
+{"id":30,"first_name":"Noni","last_name":"Preston","email":"nprestont@unblog.fr","team":"conglomeration","skill":"Occupational Therapist"},
+{"id":31,"first_name":"Barbabas","last_name":"Blackey","email":"bblackeyu@spotify.com","team":"utilisation","skill":"Analog Circuit Design manager"},
+{"id":32,"first_name":"Loralee","last_name":"Lauret","email":"llauretv@dyndns.org","team":"Decentralized","skill":"Office Assistant IV"},
+{"id":33,"first_name":"Kellyann","last_name":"McCarle","email":"kmccarlew@surveymonkey.com","team":"matrices","skill":"Structural Engineer"},
+{"id":34,"first_name":"Hilde","last_name":"Taplow","email":"htaplowx@privacy.gov.au","team":"neutral","skill":"Tax Accountant"},
+{"id":35,"first_name":"Kingsley","last_name":"Smethurst","email":"ksmethursty@hc360.com","team":"Secured","skill":"Data Coordiator"},
+{"id":36,"first_name":"Carmelina","last_name":"Watling","email":"cwatlingz@prlog.org","team":"core","skill":"Physical Therapy Assistant"},
+{"id":37,"first_name":"Chan","last_name":"Demaine","email":"cdemaine10@tiny.cc","team":"motivating","skill":"Pharmacist"},
+{"id":38,"first_name":"Leontine","last_name":"Guillot","email":"lguillot11@cisco.com","team":"Ameliorated","skill":"General Manager"},
+{"id":39,"first_name":"Zackariah","last_name":"Bairstow","email":"zbairstow12@example.com","team":"array","skill":"Human Resources Manager"},
+{"id":40,"first_name":"Budd","last_name":"Nott","email":"bnott13@slate.com","team":"Universal","skill":"Technical Writer"},
+{"id":41,"first_name":"Dalenna","last_name":"Hacard","email":"dhacard14@bluehost.com","team":"encryption","skill":"Cost Accountant"},
+{"id":42,"first_name":"Delcina","last_name":"Stennes","email":"dstennes15@indiatimes.com","team":"zero tolerance","skill":"Professor"},
+{"id":43,"first_name":"Maribel","last_name":"Dwane","email":"mdwane16@wikia.com","team":"infrastructure","skill":"Geologist II"},
+{"id":44,"first_name":"Barclay","last_name":"McGriele","email":"bmcgriele17@unicef.org","team":"migration","skill":"Health Coach I"},
+{"id":45,"first_name":"Durward","last_name":"Matusov","email":"dmatusov18@tinyurl.com","team":"Focused","skill":"Marketing Assistant"},
+{"id":46,"first_name":"Rutter","last_name":"Bullivant","email":"rbullivant19@shutterfly.com","team":"global","skill":"Chief Design Engineer"},
+{"id":47,"first_name":"Emili","last_name":"Le feaver","email":"elefeaver1a@skype.com","team":"Configurable","skill":"Compensation Analyst"},
+{"id":48,"first_name":"Alvinia","last_name":"Giacomoni","email":"agiacomoni1b@printfriendly.com","team":"logistical","skill":"VP Sales"},
+{"id":49,"first_name":"Caralie","last_name":"Farish","email":"cfarish1c@163.com","team":"stable","skill":"Cost Accountant"},
+{"id":50,"first_name":"Opal","last_name":"McCaffrey","email":"omccaffrey1d@salon.com","team":"policy","skill":"Social Worker"},
+{"id":51,"first_name":"Savina","last_name":"Pepall","email":"spepall1e@npr.org","team":"array","skill":"Geological Engineer"},
+{"id":52,"first_name":"Roxi","last_name":"Groarty","email":"rgroarty1f@google.nl","team":"Mandatory","skill":"Research Nurse"},
+{"id":53,"first_name":"Rebeca","last_name":"Espinoy","email":"respinoy1g@bbc.co.uk","team":"open architecture","skill":"Research Nurse"},
+{"id":54,"first_name":"Sada","last_name":"Fagg","email":"sfagg1h@google.it","team":"uniform","skill":"Analyst Programmer"},
+{"id":55,"first_name":"Jone","last_name":"Merrell","email":"jmerrell1i@squidoo.com","team":"Exclusive","skill":"Web Designer IV"},
+{"id":56,"first_name":"Sydel","last_name":"Boller","email":"sboller1j@slashdot.org","team":"interface","skill":"Associate Professor"},
+{"id":57,"first_name":"Pammi","last_name":"Peppard","email":"ppeppard1k@youtu.be","team":"homogeneous","skill":"Administrative Assistant III"},
+{"id":58,"first_name":"Stormi","last_name":"Wyd","email":"swyd1l@t.co","team":"asymmetric","skill":"Quality Engineer"},
+{"id":59,"first_name":"Auria","last_name":"Mongan","email":"amongan1m@vimeo.com","team":"client-server","skill":"Cost Accountant"},
+{"id":60,"first_name":"Corabelle","last_name":"Antat","email":"cantat1n@thetimes.co.uk","team":"challenge","skill":"Software Test Engineer I"},
+{"id":61,"first_name":"Beaufort","last_name":"Hedney","email":"bhedney1o@woothemes.com","team":"User-friendly","skill":"Paralegal"},
+{"id":62,"first_name":"Orelia","last_name":"Hattam","email":"ohattam1p@ted.com","team":"zero tolerance","skill":"Administrative Officer"},
+{"id":63,"first_name":"Aggie","last_name":"Prazor","email":"aprazor1q@geocities.com","team":"regional","skill":"Senior Editor"},
+{"id":64,"first_name":"Lamar","last_name":"Rapps","email":"lrapps1r@utexas.edu","team":"Ameliorated","skill":"Programmer Analyst IV"},
+{"id":65,"first_name":"Wilmer","last_name":"Farquhar","email":"wfarquhar1s@globo.com","team":"middleware","skill":"Geologist II"},
+{"id":66,"first_name":"Ari","last_name":"Grinston","email":"agrinston1t@army.mil","team":"directional","skill":"VP Sales"},
+{"id":67,"first_name":"Kala","last_name":"Carrel","email":"kcarrel1u@feedburner.com","team":"reciprocal","skill":"Civil Engineer"},
+{"id":68,"first_name":"Giacobo","last_name":"Peter","email":"gpeter1v@woothemes.com","team":"Upgradable","skill":"Analyst Programmer"},
+{"id":69,"first_name":"Aluino","last_name":"Sauvan","email":"asauvan1w@devhub.com","team":"flexibility","skill":"Occupational Therapist"},
+{"id":70,"first_name":"Idaline","last_name":"Uc","email":"iuc1x@vimeo.com","team":"artificial intelligence","skill":"Graphic Designer"},
+{"id":71,"first_name":"Valentine","last_name":"Hourston","email":"vhourston1y@state.gov","team":"Digitized","skill":"Assistant Media Planner"},
+{"id":72,"first_name":"Glen","last_name":"Kennler","email":"gkennler1z@geocities.jp","team":"Open-source","skill":"Data Coordiator"},
+{"id":73,"first_name":"Yettie","last_name":"Gully","email":"ygully20@infoseek.co.jp","team":"Persistent","skill":"VP Product Management"},
+{"id":74,"first_name":"Wyndham","last_name":"Epgrave","email":"wepgrave21@eventbrite.com","team":"software","skill":"Software Test Engineer III"},
+{"id":75,"first_name":"Hanny","last_name":"Kytley","email":"hkytley22@mtv.com","team":"matrix","skill":"GIS Technical Architect"},
+{"id":76,"first_name":"Rayshell","last_name":"Cussons","email":"rcussons23@a8.net","team":"dedicated","skill":"Environmental Tech"},
+{"id":77,"first_name":"Baillie","last_name":"Bourges","email":"bbourges24@ezinearticles.com","team":"even-keeled","skill":"Clinical Specialist"},
+{"id":78,"first_name":"Shani","last_name":"Pley","email":"spley25@deliciousdays.com","team":"neutral","skill":"Physical Therapy Assistant"},
+{"id":79,"first_name":"Eduardo","last_name":"Devonish","email":"edevonish26@opera.com","team":"projection","skill":"GIS Technical Architect"},
+{"id":80,"first_name":"Phillis","last_name":"Skoggins","email":"pskoggins27@slate.com","team":"matrix","skill":"Software Engineer IV"},
+{"id":81,"first_name":"Hollis","last_name":"Diplock","email":"hdiplock28@usnews.com","team":"analyzer","skill":"Product Engineer"},
+{"id":82,"first_name":"Sabina","last_name":"Eustis","email":"seustis29@yandex.ru","team":"Graphic Interface","skill":"Programmer Analyst I"},
+{"id":83,"first_name":"Dosi","last_name":"Sigmund","email":"dsigmund2a@tiny.cc","team":"support","skill":"Account Coordinator"},
+{"id":84,"first_name":"Marigold","last_name":"Montier","email":"mmontier2b@bizjournals.com","team":"Managed","skill":"Data Coordiator"},
+{"id":85,"first_name":"Angelina","last_name":"Sandell","email":"asandell2c@pen.io","team":"national","skill":"Developer II"},
+{"id":86,"first_name":"Dorolice","last_name":"Bithell","email":"dbithell2d@reddit.com","team":"Focused","skill":"Geologist IV"},
+{"id":87,"first_name":"Conway","last_name":"Brader","email":"cbrader2e@purevolume.com","team":"archive","skill":"Food Chemist"},
+{"id":88,"first_name":"Paige","last_name":"Swindley","email":"pswindley2f@sina.com.cn","team":"Virtual","skill":"Budget/Accounting Analyst III"},
+{"id":89,"first_name":"Kingsly","last_name":"Woolley","email":"kwoolley2g@slate.com","team":"Profound","skill":"Engineer II"},
+{"id":90,"first_name":"Inger","last_name":"Temlett","email":"itemlett2h@buzzfeed.com","team":"pricing structure","skill":"Civil Engineer"},
+{"id":91,"first_name":"Sherie","last_name":"Spurritt","email":"sspurritt2i@home.pl","team":"Vision-oriented","skill":"Community Outreach Specialist"},
+{"id":92,"first_name":"Shell","last_name":"Pedrol","email":"spedrol2j@ucsd.edu","team":"capability","skill":"Occupational Therapist"},
+{"id":93,"first_name":"Kaycee","last_name":"Sasser","email":"ksasser2k@xrea.com","team":"motivating","skill":"Web Designer II"},
+{"id":94,"first_name":"Hayden","last_name":"Doxey","email":"hdoxey2l@timesonline.co.uk","team":"Re-engineered","skill":"Chief Design Engineer"},
+{"id":95,"first_name":"Helyn","last_name":"Averall","email":"haverall2m@amazon.com","team":"mobile","skill":"Analog Circuit Design manager"},
+{"id":96,"first_name":"Bronnie","last_name":"Dybell","email":"bdybell2n@sfgate.com","team":"hybrid","skill":"Account Executive"},
+{"id":97,"first_name":"Natty","last_name":"Robuchon","email":"nrobuchon2o@wiley.com","team":"projection","skill":"Research Associate"},
+{"id":98,"first_name":"Harriot","last_name":"Pawfoot","email":"hpawfoot2p@who.int","team":"frame","skill":"Actuary"},
+{"id":99,"first_name":"Raquel","last_name":"Sherebrook","email":"rsherebrook2q@google.es","team":"Programmable","skill":"Payment Adjustment Coordinator"},
+{"id":100,"first_name":"Laney","last_name":"Feetham","email":"lfeetham2r@ow.ly","team":"dedicated","skill":"Environmental Specialist"}];      
+            var result = [];
+            for(var i in dataSet){
+                result.push([dataSet[i].first_name, dataSet[i].last_name, dataSet[i].email, dataSet[i].skill, dataSet[i].team]);
+            }
+            console.table(result);
+            $(document).ready(function () {
+                $('#example').DataTable({
+                    data: result,
+                    columns: [
+                        { title: 'First Name' },
+                        { title: 'Last Name' },
+                        { title: 'Email' },
+                        { title: 'Team' },
+                        { title: 'Skill' },
+                    ],
+                });
+            });
+            $(document).on('click', '#mybtn', function(){
+                $('#thide-1').hide();
+                $('#thide-2').show();
+            });
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../mockup/Users/view_users.html">Link</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                    <div class="card-footer">
+                        <button id="mybtn" class="btn btn-warning">Show/hide</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="thide-1"> <table id="example" class="display table table-striped table-condensed" width="100%"></table></div>
+                <div id="thide-2" style="display:none"> <b>REEEEEE</b></div>
+            </div>
+        </div>
+    </body>
+</html>
