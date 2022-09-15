@@ -111,3 +111,7 @@ var teamsArr = [{"team_name":"The Finch, common melbas","qualification":3},
                 {"team_name":"The Swainson's francolins","qualification":1},
                 {"team_name":"The Fox, pampa grays","qualification":2},
                 {"team_name":"The Tyrant flycatchers","qualification":1}]
+                var result2 = [];
+                for(var i in teamsArr){
+                    result2.push([teamsArr[i].team_name, teamsArr[i].qualification]);
+                }
