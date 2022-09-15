@@ -1,0 +1,72 @@
+ 
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="../src/login.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        console.log(window.location.pathname);
+      });
+      var sub, user, pass, mainContent, loggedIn;
+      var loggedIn = document.querySelector('.logged-in')
+      $(document).on("click", "#loginButton", function(){
+        location.replace("./view_home.html");
+      });
+      function _(x) {
+        return document.getElementById(x);
+      }
+
+      sub = _('submit');
+      user = _('user-name');
+      pass = _('user-pass');
+      mainContent = _('main');
+      loggedIn = _('logged-in');
+
+      // sub.addEventListener('click', login);
+
+      function login(event) {
+        event.preventDefault();
+        var userValue = user.value;
+        var passValue = pass.value;
+        
+        if (userValue.length >= 3 && passValue.length >= 3) {_
+            mainContent.classList.add('login-true');
+            loggedIn.style.display = 'block';
+            loggedIn.innerHTML = '<h2>Welcome, ' + userValue + '</h2>';
+        } else {
+          alert('Username and Password must contain at least 3 characters.')
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="main" class="main-container">
+      <div class="box">
+        <h2>Login</h2>
+        <div>
+          <div class="input-box">
+            <input id="user-name" type="text" name="" required="">
+            <label>Username</label>
+          </div>
+          <div class="input-box">
+            <input id="user-pass" type="password" name="" required="">
+            <label>Password</label>
+          </div>
+          <button class="btn btn-primary" id="loginButton" value="Submit">Submit</button>
+        </div>
+        <p><a href="#">Lost your password?</a></p>
+        <p><a href="#">Register</a></p>
+      </div>
+    </div>
+    
+    <div id="logged-in">
+    </div>
+  </body>
+</html>
