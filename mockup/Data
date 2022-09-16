@@ -115,3 +115,34 @@ var teamsArr = [{"team_name":"The Finch, common melbas","qualification":3},
                 for(var i in teamsArr){
                     result2.push([teamsArr[i].team_name, teamsArr[i].qualification]);
                 }
+// firstname, lastname, role, date joined team, skills completed
+var team1 = [
+    ['Rick', 'Ross', 'NCOIC', 3],
+    ['Samantha', 'Yert', 'Graphic Designer', 5],
+    ['John','Wall', 'Developer', 1],
+    ['Robert', 'Jones', 'Developer', 4],
+    ['Sam', 'Flute', 'Graphic Designer', 3]
+];
+
+var team2 = [
+    ['George', 'Bob', 'NCOIC', 1],
+    ['Ryan', 'Cernt', 'Graphic Designer', 5],
+    ['John','Fredrickson', 'Developer', 2],
+    ['Peter', 'Johnson', 'Developer', 2],
+    ['Janet', 'Slouth', 'Graphic Designer', 3]
+];
+var team3 = [
+    ['Blake', 'Flanders', 'NCOIC', 3],
+    ['Susan', 'Gertrude', 'Graphic Designer', 2],
+    ['Percival','Wallace', 'Developer', 1],
+    ['Nemore', 'Rinchough', 'Developer', 2],
+    ['Sasha', 'Spam', 'Graphic Designer', 3]
+];
+
+var team4 = [
+    ['Barney', 'Simpson', 'NCOIC', 1],
+    ['Homer', 'Milfoy', 'Graphic Designer', 3],
+    ['Eddie','Edmanson', 'Developer', 2],
+    ['Ryan', 'Stubblefield', 'Developer', 1],
+    ['Lane', 'Kurt', 'Graphic Designer', 3]
+];
