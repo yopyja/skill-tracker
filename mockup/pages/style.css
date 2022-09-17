@@ -8,8 +8,12 @@
 }
 .test{
     max-width: 100%;
+    margin-bottom: 10px;
 }
 .test-group{
     column-count: 2;
     padding:5px;
+}
+.canvas-container{
+
 }
