@@ -81,26 +81,26 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card my-5 ml-5">
-                        <div class="card-header"><b>Team #1</b></div>
+                        <div class="card-header"><b>Team #3</b></div>
                         <div class="row">
                             <div class="col-md-6 p-5">
                                 <table id="teamTable3" class="table table-sm table-striped table-bordered"></table>
                             </div>
                             <div class="col-md-6">
-                                <canvas id="myChart3" class="col-md-6" width="200" height="200"></canvas>
+                                <canvas id="myChart4" class="col-md-6" width="200" height="200"></canvas>
                             </div>
                         </div> 
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card my-5 mr-5">
-                        <div class="card-header"><b>Team #2</b></div>
+                        <div class="card-header"><b>Team #4</b></div>
                         <div class="row">
                             <div class="col-md-6 p-5">
                                 <table id="teamTable4" class="table table-sm table-striped table-bordered"></table>
                             </div>
                             <div class="col-md-6">
-                                <canvas id="myChart4" class="col-md-6" width="200" height="200"></canvas>
+                                <canvas id="myChart5" class="col-md-6" width="200" height="200"></canvas>
                             </div>
                         </div> 
                     </div>
@@ -123,6 +123,28 @@
         $(document).ready(function(){
             $('#teamTable2').DataTable({
                 data: team2,
+                columns: [
+                    {title: 'First Name'},
+                    {title: 'Last Name'},
+                    {title: 'Role'},
+                    {title: 'Skills'}
+                ]
+            });
+        });
+        $(document).ready(function(){
+            $('#teamTable3').DataTable({
+                data: team3,
+                columns: [
+                    {title: 'First Name'},
+                    {title: 'Last Name'},
+                    {title: 'Role'},
+                    {title: 'Skills'}
+                ]
+            });
+        });
+        $(document).ready(function(){
+            $('#teamTable4').DataTable({
+                data: team4,
                 columns: [
                     {title: 'First Name'},
                     {title: 'Last Name'},
@@ -170,29 +192,105 @@
             }
         });
 
-        const ctx3 = $('#myChart3');
-        const stackedBar2 = new Chart(ctx3, {
-            type: 'doughnut',
+        const ctx4 = $('#myChart4');
+        const stackedBar4 = new Chart(ctx4, {
+            type: 'bar',
             data: {
                 labels: ['HTX', 'Motar', 'Photoshop', 'Premire', 'Unity', 'Captivate'],
                 datasets: [{
                     label: '# of memebers with skill',
                     data: [3, 7, 5, 7, 1,12],
                     backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
                         'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        stacked: true
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+            }
+        });
+        const ctx3 = $('#myChart3');
+        const stackedBar2 = new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: ['HTX', 'Motar', 'Photoshop', 'Premire', 'Unity', 'Captivate'],
+                datasets: [{
+                    label: '# of memebers with skill',
+                    data: [3, 7, 5, 7, 1,12],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        stacked: true
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+            }
+        });
+        const ctx5 = $('#myChart5');
+        const stackedBar5 = new Chart(ctx5, {
+            type: 'bar',
+            data: {
+                labels: ['HTX', 'Motar', 'Photoshop', 'Premire', 'Unity', 'Captivate'],
+                datasets: [{
+                    label: '# of memebers with skill',
+                    data: [3, 7, 5, 7, 1,2],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
                         'rgba(255, 206, 86, 0.2)',
                         'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)'
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
                         'rgba(255, 206, 86, 1)',
                         'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)'
                     ],
                     borderWidth: 1
                 }]
