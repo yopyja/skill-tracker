@@ -2,7 +2,8 @@
 <html>
     <head>
         <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./style.css" rel="stylesheet">
         
         <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
@@ -55,11 +56,13 @@
                     <div class="card my-5 ml-5">
                         <div class="card-header"><b>Team #1</b></div>
                         <div class="row">
-                            <div class="col-md-6 p-5">
-                                <table id="teamTable" class="table table-sm table-striped table-bordered"></table>
+                            <div class="col-md-6 p-3">
+                                <div class="d-flex justify-content-center">
+                                    <table id="teamTable" class="table table-sm table-striped table-bordered"></table>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <canvas id="myChart2" class="col-md-6" width="200" height="200"></canvas>
+                            <div class="col-md-6 p-3" style="max-height: 5vh; position:relative;">
+                                <canvas style="position:absolute; width:100%; height:100%;" id="myChart2" width="200" height="200"></canvas>
                             </div>
                         </div> 
                     </div>
@@ -68,11 +71,13 @@
                     <div class="card my-5 mr-5">
                         <div class="card-header"><b>Team #2</b></div>
                         <div class="row">
-                            <div class="col-md-6 p-5">
-                                <table id="teamTable2" class="table table-sm table-striped table-bordered"></table>
+                            <div class="col-md-6 p-3">
+                                <div class="d-flex justify-content-center">
+                                    <table id="teamTable2" class="table table-sm table-striped table-bordered"></table>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <canvas id="myChart3" class="col-md-6" width="200" height="200"></canvas>
+                            <div class="col-md-6 p-3" style="max-height: 5vh; position:relative;">
+                                <canvas style="position:absolute; width:100%; height:100%;" id="myChart3" width="200" height="200"></canvas>
                             </div>
                         </div> 
                     </div>
@@ -83,11 +88,13 @@
                     <div class="card my-5 ml-5">
                         <div class="card-header"><b>Team #3</b></div>
                         <div class="row">
-                            <div class="col-md-6 p-5">
-                                <table id="teamTable3" class="table table-sm table-striped table-bordered"></table>
+                            <div class="col-md-6 p-3">
+                                <div class="d-flex justify-content-center">
+                                    <table id="teamTable3" class="table table-sm table-striped table-bordered"></table>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <canvas id="myChart4" class="col-md-6" width="200" height="200"></canvas>
+                            <div class="col-md-6 p-3" style="max-height: 5vh; position:relative;">
+                                <canvas style="position:absolute; width:100%; height:100%;" id="myChart4" width="200" height="200"></canvas>
                             </div>
                         </div> 
                     </div>
@@ -96,11 +103,13 @@
                     <div class="card my-5 mr-5">
                         <div class="card-header"><b>Team #4</b></div>
                         <div class="row">
-                            <div class="col-md-6 p-5">
-                                <table id="teamTable4" class="table table-sm table-striped table-bordered"></table>
+                            <div class="col-md-6 p-3">
+                                <div class="d-flex justify-content-center">
+                                    <table id="teamTable4" class="table table-sm table-striped table-bordered"></table>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <canvas id="myChart5" class="col-md-6" width="200" height="200"></canvas>
+                            <div class="col-md-6 p-3" style="max-height: 5vh; position:relative;">
+                                <canvas style="position:absolute; width:100%; height:100%;" id="myChart5" width="200" height="200"></canvas>
                             </div>
                         </div> 
                     </div>
@@ -230,6 +239,7 @@
                 }
             }
         });
+
         const ctx3 = $('#myChart3');
         const stackedBar2 = new Chart(ctx3, {
             type: 'bar',
