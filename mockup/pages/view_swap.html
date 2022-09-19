@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="../src/login.css" rel="stylesheet">
+    <link href="../src/tabulator-master/dist/css/tabulator.css" rel="stylesheet">
+    <link href="../src/tabulator-master/dist/css/tabulator_site.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="../Data"></script>
+    <script src="../src/tabulator-master/dist/js/tabulator.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./view_home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./view_dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./view_users.html">Users</a></li>
+                        <li><a class="dropdown-item" href="./view_chart.html">Chart</a></li>
+                        <li><a class="dropdown-item" href="./view_swap.html">Team Swap</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="./view_teamStatus.html">Team Overview</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li>
+                </ul>
+                <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+            </div>
+        </nav>
+    <div class="container-fluid">
+        <div id="example-table-sender" class="mt-5"></div>
+        <div id="example-table-receiver"></div>
+    </div>
+</body>
+<script>
+    var table = new Tabulator("#example-table-sender", {
+        height:800,
+        layout:"fitColumns",
+        placeholder:"All Rows Moved",
+        data:exTable1,
+        movableRows:true,
+        groupBy:"Team",
+        columns:[
+            {title:"Team #", field:"Team", editor:"list", editorParams:{
+                    autocomplete:true,
+                    listOnEmpty:true,
+                    valuesLookup:true
+                },
+            },
+            {title:"AFSC", field:"Career"},
+            {title:"F.Name", field:"first_name"},
+            {title:"L.Name", field:"last_name"},
+            {title:"Email", field:"email"},
+            {title:"Premire", field:"Premiere", formatter:"tickCross", headerFilter:"tickCross", editor:true, headerFilterParams:{"Premire":true}},
+            {title:"InDesign", field:"InDesign", formatter:"tickCross", headerFilter:"tickCross", editor:true, headerFilterParams:{"InDesign":true}},
+            {title:"Illustrator", field:"Illustrator", formatter:"tickCross", headerFilter:"tickCross", editor:true, headerFilterParams:{"Illustrator":true}},
+            {title:"Photoshop", field:"Photoshop", formatter:"tickCross", headerFilter:"tickCross", editor:true, headerFilterParams:{"Photoshop":true}},
+            {title:"After Effects", field:"After Effects", formatter:"tickCross", headerFilter:"tickCross", editor:true, headerFilterParams:{"After Effects":true}},
+            {title:"Audition", field:"Audition", formatter:"tickCross", headerFilter:"tickCross", editor:true, headerFilterParams:{"Audition":true}},
+            {title:"Captivate", field:"Captivate", formatter:"tickCross", headerFilter:"tickCross", editor:true, headerFilterParams:{"Captivate":true}},
+        ]
+    });
+</script>
+</html>
