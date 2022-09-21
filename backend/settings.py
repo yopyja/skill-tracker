@@ -39,11 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'rest_framework',
     'corsheaders',
     'skill_tracker',
     'api'
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # CORS_ORIGIN_ALLOW_ALL = True
 

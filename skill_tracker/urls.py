@@ -18,8 +18,12 @@ from django.urls import path
 from skill_tracker import views
 
 urlpatterns = [
+    path("register", views.register_request, name="register"),
+
     path('', views.index, name='index'), 
+
     path('api/', views.TeamApi), 
+    
     path('api/<int:id>', views.TeamApi),
 
     path('api/<int:id>', views.OrganizationApi),

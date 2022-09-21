@@ -3,6 +3,10 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
+from django.shortcuts import render, redirect
+from .forms import NewUserForm
+from django.contrib.auth import login
+from django.contrib import messages
 
 from skill_tracker.models import *
 from skill_tracker.serializers import *
@@ -11,6 +15,18 @@ from skill_tracker.serializers import *
 def index(request):
     my_dict = {'insert_content':"skill_tracker app view"}
     return render(request, 'skill_tracker/index.html', context=my_dict)
+
+def register_request(request):
+	if request.method == "POST":
+		form = NewUserForm(request.POST)
+		if form.is_valid():
+			user = form.save()
+			login(request, user)
+			messages.success(request, "Registration successful." )
+			return redirect("index")
+		messages.error(request, "Unsuccessful registration. Invalid information.")
+	form = NewUserForm()
+	return render (request=request, template_name="skill_tracker/register.html", context={"register_form":form})
 
 @csrf_exempt
 def TeamApi(request, id=None):
