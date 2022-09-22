@@ -37,8 +37,7 @@ def edit_user(request):
             messages.success(request, "User Edit successful." )
             return redirect("index")
     form = EditUserForm()
-    return render (request, 'skill_tracker/edit_user.html', {'form':form})
-    # , context={"edit-user":form}
+    return render (request, 'skill_tracker/edit_user.html', {'user_form':form})
 
 
 
