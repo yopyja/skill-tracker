@@ -32,7 +32,7 @@ class Granted_Permissions(models.Model):
     granted_permissions_id = models.AutoField(primary_key=True)
     is_user = models.BooleanField()
     # sub_permissions_id = models.ForeignKey(Sub_Permissions.sub_permissions_id, on_delete=models.CASCADE)
-    sub_permissions_id = models.IntegerField()
+    sub_permissions_id = models.IntegerField() #make this a FK
     entity_id = models.IntegerField()
 
 class User(models.Model):
@@ -41,7 +41,7 @@ class User(models.Model):
     last_name = models.CharField(max_length=50)
     prefix = models.CharField(max_length=5)
     position = models.CharField(max_length=50)
-    archived = models.BooleanField(null=False)
+    archived = models.BooleanField(null=False, default=False)
 
 class Skill_Level(models.Model):
     skill_level_id = models.AutoField(primary_key=True)

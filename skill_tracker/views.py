@@ -1,10 +1,11 @@
+from asyncore import write
 import re
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.shortcuts import render, redirect
-from .forms import NewUserForm
+from .forms import NewUserForm, EditUserForm
 from django.contrib.auth import login
 from django.contrib import messages
 
@@ -27,6 +28,19 @@ def register_request(request):
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
 	return render (request=request, template_name="skill_tracker/register.html", context={"register_form":form})
+
+def edit_user(request):
+    if request.method=='POST':
+        form = EditUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "User Edit successful." )
+            return redirect("index")
+    form = EditUserForm()
+    return render (request, 'skill_tracker/edit_user.html', {'form':form})
+    # , context={"edit-user":form}
+
+
 
 @csrf_exempt
 def TeamApi(request, id=None):

@@ -94,6 +94,7 @@ DATABASES = {
         'PORT': 5432,
     }
 }
+# This is for initial migration stuff
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',

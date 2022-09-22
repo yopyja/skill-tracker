@@ -18,9 +18,11 @@ from django.urls import path
 from skill_tracker import views
 
 urlpatterns = [
-    path("register", views.register_request, name="register"),
+    path("register/", views.register_request, name="register"),
 
     path('', views.index, name='index'), 
+
+    path("edit_user/", views.edit_user, name="edit_user"),
 
     path('api/', views.TeamApi), 
     
@@ -51,4 +53,6 @@ urlpatterns = [
     path('team/<int:id>', views.Assoc_User_TeamsApi),
 
     path('team/<int:id>', views.Assoc_User_SkillsApi),
+
+    
 ]
