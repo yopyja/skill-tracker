@@ -26,16 +26,23 @@ class NewUserForm(UserCreationForm):
 class EditUserForm(ModelForm):
 	class Meta:
 		model = User
-		fields = ("first_name", "last_name")
+		fields = ("username", "first_name", "last_name", "email")
 		exclude = ("user_id", "archived")
 		labels = {
+			"username": '',
 			"first_name": '',
 			"last_name": '',
+			"email": '',
 		}
 		widgets = {
+			"username": forms.TextInput(attrs={'class':'form-control', 'placeholder':'Username'}),
 			"first_name": forms.TextInput(attrs={'class':'form-control', 'placeholder':'First Name'}),
 			"last_name": forms.TextInput(attrs={'class':'form-control', 'placeholder':'Last Name'}),
+			"email": forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}),
 		}
+		help_texts = {
+            "username":None,
+        }
 
 class UserLoginForm(ModelForm):
 	class Meta:
