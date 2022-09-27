@@ -23,20 +23,15 @@ class NewUserForm(UserCreationForm):
 		return user
 
 class EditUserForm(ModelForm):
-	
 	class Meta:
-		model = models.User
-		fields = ("first_name", "last_name", "prefix", "position")
+		model = User
+		fields = ("first_name", "last_name")
 		exclude = ("user_id", "archived")
 		labels = {
 			"first_name": '',
 			"last_name": '',
-			"prefix": '',
-			"position": '',
 		}
 		widgets = {
 			"first_name": forms.TextInput(attrs={'class':'form-control', 'placeholder':'First Name'}),
 			"last_name": forms.TextInput(attrs={'class':'form-control', 'placeholder':'Last Name'}),
-			"prefix": forms.TextInput(attrs={'class':'form-control', 'placeholder':'Prefix'}),
-			"position": forms.TextInput(attrs={'class':'form-control', 'placeholder':'Duty Position'}),
 		}

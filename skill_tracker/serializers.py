@@ -17,15 +17,15 @@ class RolesSerializer(serializers.ModelSerializer):
         model=Roles
         fields=('role_id','org_id','is_team')
 
-class Sub_PermissionsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Sub_Permissions
-        fields=('sub_permission_id','description')
+# class Sub_PermissionsSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model=Sub_Permissions
+#         fields=('sub_permission_id','description')
 
-class Granted_PermissionsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Granted_Permissions
-        fields=('granted_permissions_id','is_user','subpermissions_id','entity_id')
+# class Granted_PermissionsSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model=Granted_Permissions
+#         fields=('granted_permissions_id','is_user','subpermissions_id','entity_id')
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
