@@ -4,6 +4,12 @@
 /skill_tracker/migrations
 /api/__pycache__
 /api/migrations
+<<<<<<< HEAD
 /SiteManagement/__pycache__
 /SiteManagement/migrations
 mockup/startbootstrap-sb-admin-2-gh-pages/
+=======
+mockup/startbootstrap-sb-admin-2-gh-pages/
+/SiteManagement/pycache
+/SiteManagement/migrations
+>>>>>>> bootstrap-moore

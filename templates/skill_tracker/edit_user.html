@@ -8,7 +8,7 @@
                 <h1>Edit User</h1>
                 <form action="" method=POST>
                     {% csrf_token %}
-                    {{ user_form|crispy }}
+                    {{ edit_user|crispy }}
                     <input type="submit" value="Submit" class="btn btn-secondary">
                 </form>
             </center>

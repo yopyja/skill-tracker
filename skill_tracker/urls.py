@@ -18,11 +18,12 @@ from django.urls import path
 from skill_tracker import views
 
 urlpatterns = [
-    path("register/", views.register_request, name="register"),
 
-    path('user_login/', views.user_login, name='user_login'),
+    path("team_management_dashboard/", views.team_management, name="team_management_dashboard"),
 
-    path('logout_user', views.logout_user, name='user_logout'),
+    path("team_management_dashboard/", views.all_teams, name="team_management_dashboard"),
+    
+    # path("team_management_dashboard/", views.add_team, name="team_management_dashboard"),
 
     path("dashboard/", views.dashboard, name="dashboard"),
 
