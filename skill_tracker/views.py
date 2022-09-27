@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -34,15 +35,29 @@ def edit_user(request):
 def dashboard(request):
     return render(request, 'skill_tracker/dashboard.html', {})
 
+def team_management(request):
+    _all_teams = all_teams(request)
+    _add_team = add_team(request)
+    context = {
+        'team_list' : _all_teams,
+        'add_team': _add_team,
+    }
+    if request.method=='POST':
+        _add_team.save()
+        messages.success(request, "Team Successfully Added")
+        return redirect('team_management_dashboard')
+    return render(request, 'skill_tracker/team_management_dashboard.html', context)
+
 def all_teams(request):
     team_list = Team.objects.all()
-    return render(request, 'skill_tracker/team_management_dashboard.html', {'team_list':team_list})
+    # return render(request, 'skill_tracker/team_management_dashboard.html', {'team_list':team_list})
+    return team_list
 
 def add_team(request):
     add_team = AddTeamForm(request.POST or None)
-    if request.method=='POST':
-        add_team.save()
-        messages.success(request, "Team Successfully Added")
-        return redirect('team_management_dashboard')
-    return render (request, 'skill_tracker/team_management_dashboard.html', {'add_team':add_team})
-
+    # if request.method=='POST':
+    #     add_team.save()
+    #     messages.success(request, "Team Successfully Added")
+    #     return redirect('team_management_dashboard')
+    # return render (request, 'skill_tracker/team_management_dashboard.html', {'add_team':add_team})
+    return add_team

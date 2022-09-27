@@ -8,9 +8,9 @@
            <li>{{ team.name }}</li>
         {% endfor %}
         </ul>
-            {% comment %} <form action="" method=POST>
+            <form action="" method=POST>
                 {% csrf_token %}
-                {{ add_team|crispy }}
+                {{ add_team }}
                 <input type="submit" value="Submit" class="btn btn-secondary">
-            </form> {% endcomment %}
+            </form>
     {% endblock %}
