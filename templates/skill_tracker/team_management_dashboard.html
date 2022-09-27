@@ -1,0 +1,16 @@
+{% extends "skill_tracker/base.html" %}
+
+    {% block content %}
+
+        {% comment %} {% load crispy_forms_tags %} {% endcomment %}
+        <ul>
+        {% for team in team_list %}
+           <li>{{ team.name }}</li>
+        {% endfor %}
+        </ul>
+            {% comment %} <form action="" method=POST>
+                {% csrf_token %}
+                {{ add_team|crispy }}
+                <input type="submit" value="Submit" class="btn btn-secondary">
+            </form> {% endcomment %}
+    {% endblock %}

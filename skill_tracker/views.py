@@ -3,12 +3,13 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.shortcuts import render, redirect
-from .forms import NewUserForm, EditUserForm, UserLoginForm
+from .forms import AddTeamForm, EditUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from skill_tracker.models import *
+
+from api.models import *
 
 # Create your views here.
 # def login_user(request):
@@ -32,4 +33,16 @@ def edit_user(request):
 
 def dashboard(request):
     return render(request, 'skill_tracker/dashboard.html', {})
+
+def all_teams(request):
+    team_list = Team.objects.all()
+    return render(request, 'skill_tracker/team_management_dashboard.html', {'team_list':team_list})
+
+def add_team(request):
+    add_team = AddTeamForm(request.POST or None)
+    if request.method=='POST':
+        add_team.save()
+        messages.success(request, "Team Successfully Added")
+        return redirect('team_management_dashboard')
+    return render (request, 'skill_tracker/team_management_dashboard.html', {'add_team':add_team})
 

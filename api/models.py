@@ -9,7 +9,7 @@ class Team(models.Model):
     team_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     description = models.TextField(null=True)
-    is_active = models.BooleanField()
+    is_active = models.BooleanField(default=True)
     logo = models.BinaryField(null=True)
 
 class Organization(models.Model):

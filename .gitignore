@@ -5,3 +5,5 @@
 /api/__pycache__
 /api/migrations
 mockup/startbootstrap-sb-admin-2-gh-pages/
+/SiteManagement/pycache
+/SiteManagement/migrations

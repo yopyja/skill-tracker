@@ -19,6 +19,10 @@ from skill_tracker import views
 
 urlpatterns = [
 
+    path("team_management_dashboard/", views.all_teams, name="team_management_dashboard"),
+    
+    # path("team_management_dashboard/", views.add_team, name="team_management_dashboard"),
+
     path("dashboard/", views.dashboard, name="dashboard"),
 
     path("edit_user/", views.edit_user, name="edit_user"),
