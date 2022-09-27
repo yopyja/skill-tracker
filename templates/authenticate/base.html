@@ -10,7 +10,9 @@
     <body>
         {% if messages %}
           {% for message in messages %}
-            {{ message }}
+          <div class="alert alert-primary" role="alert">
+            <center>{{ message }}
+          </div>
           {% endfor %}
         {% endif %}
         {% block content %}

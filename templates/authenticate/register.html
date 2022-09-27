@@ -10,7 +10,11 @@
             {{ register_form|crispy }}                    
             <button class="btn btn-primary" type="submit">Register</button>
         </form>
+<<<<<<< HEAD:skill_tracker/templates/authenticate/register.html
         <p class="text-center">If you already have an account, <a href="{%url 'user_login' %}">login</a> instead.</p>
+=======
+        <p class="text-center">If you already have an account, <a href="{% url 'user_logout' %}">login</a> instead.</p>
+>>>>>>> bootstrap-moore:templates/authenticate/register.html
     </div>
     
     {% endblock content %}

@@ -1,6 +1,6 @@
 from dataclasses import fields
 from rest_framework import serializers
-from skill_tracker.models import *
+from api.models import *
 
 class TeamSerializer(serializers.ModelSerializer):
     class Meta:
