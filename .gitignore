@@ -7,5 +7,4 @@
 mockup/startbootstrap-sb-admin-2-gh-pages/
 /SiteManagement/pycache
 /SiteManagement/migrations
-/SiteManagement/pycache/*
-/SiteManagement/migrations/*
+
