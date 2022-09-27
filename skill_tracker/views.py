@@ -16,7 +16,6 @@ from skill_tracker.serializers import *
 #     return render(request=request, template_name="authenticate/login.html", context={"user_login_form":form})
 
 
-
 def index(request):
     my_dict = {'insert_content':"skill_tracker app view"}
     return render(request, 'skill_tracker/index.html', context=my_dict)
