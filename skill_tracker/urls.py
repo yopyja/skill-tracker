@@ -20,7 +20,11 @@ from skill_tracker import views
 urlpatterns = [
     path("register/", views.register_request, name="register"),
 
-    # path('', views.index, name='index'), 
+    path('user_login/', views.user_login, name='user_login'),
+
+    path('logout_user', views.logout_user, name='user_logout'),
+
+    path("dashboard/", views.dashboard, name="dashboard"),
 
     path("edit_user/", views.edit_user, name="edit_user"),
 

@@ -1,3 +1,4 @@
+from xml.parsers.expat import model
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -35,3 +36,19 @@ class EditUserForm(ModelForm):
 			"first_name": forms.TextInput(attrs={'class':'form-control', 'placeholder':'First Name'}),
 			"last_name": forms.TextInput(attrs={'class':'form-control', 'placeholder':'Last Name'}),
 		}
+
+class UserLoginForm(ModelForm):
+	class Meta:
+		model = User
+		fields = ("username", "password")
+		labels = {
+			"username": '',
+			"password": '',
+		}
+		widgets = {
+			"username": forms.TextInput(attrs={'class':'form-control', 'placeholder':'Who ye be?'}),
+			"password": forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'Vats da passvord?'}),
+		}
+		help_texts = {
+            "username":None,
+        }

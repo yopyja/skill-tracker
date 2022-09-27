@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'skill_tracker',
-    'api'
+    'api',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -151,4 +151,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL = "skill_tracker/index.html"
+LOGIN_REDIRECT_URL = "skill_tracker/dashboard.html"
