@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'skill_tracker',
     'api',
+    'SiteManagement',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
