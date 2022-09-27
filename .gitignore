@@ -4,4 +4,6 @@
 /skill_tracker/migrations
 /api/__pycache__
 /api/migrations
+/SiteManagement/__pycache__
+/SiteManagement/migrations
 mockup/startbootstrap-sb-admin-2-gh-pages/
