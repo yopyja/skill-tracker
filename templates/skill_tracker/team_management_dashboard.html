@@ -3,14 +3,46 @@
     {% block content %}
 
         {% load crispy_forms_tags %}
-        <ul>
-            
-
-        {% for team in team_list %}
-            <li>{{ team.name }}</li>
-        {% endfor %}
-
-        </ul>
+        <script>
+        $(document).ready(function(){
+            const userPath = $(location).attr("origin")+'/api/users/';
+            console.log(userPath);
+            $('#testTable').DataTable();
+            $('#test').DataTable({
+                // processing: true,
+                // serverSide: true,
+                ajax: {
+                    url: userPath,
+                    type: 'POST',
+                },
+                columns: [
+                    { data: 'username' },
+                    { data: 'email' },
+                ],
+            });
+        });
+        </script>
+        <br><br>
+        <table id="testTable" class="table table-striped">
+            <thead>
+                <th>Name</th>
+                <th>Description</th>
+            </thead>
+            <tbody>
+                {% for team in team_list %}
+                <tr>
+                    <td>{{ team.name }}</td>
+                    <td>{{ team.description }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table id="test" class="table">
+            <thead>
+                <th>Name</th>
+                <th>Description</th>
+            </thead>
+        </table>
             <form action="" method=POST>
                 {% csrf_token %}
                 {{ add_team|crispy }}

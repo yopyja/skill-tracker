@@ -157,7 +157,7 @@ def UserApi(request, id=None):
             user_serializer = UserSerializer(user,many=True)
             return JsonResponse(user_serializer.data, safe=False)
         elif id is not None:
-            user = User.objects.get(user_id=id)
+            user = User.objects.get(id=id)
             user_serializer = UserSerializer(user)
             return JsonResponse(user_serializer.data, safe=False)
     elif request.method=='POST':
@@ -169,7 +169,7 @@ def UserApi(request, id=None):
         return JsonResponse("Failed to add", safe=False)
     elif request.method=='PUT':
         user_data=JSONParser().parse(request)
-        user=User.objects.get(user_id=user_data['user_id'])
+        user=User.objects.get(id=user_data['id'])
         user_serializer=UserSerializer(user, data=user_data)
         if user_serializer.is_valid():
             user_serializer.save()

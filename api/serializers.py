@@ -1,6 +1,7 @@
 from dataclasses import fields
 from rest_framework import serializers
 from api.models import *
+from django.contrib.auth.models import User
 
 class TeamSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,7 +31,7 @@ class RolesSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model=User
-        fields=('user_id','first_name','last_name','prefix','position','archived')
+        fields=('id','username','email')
 
 class Skill_LevelSerializer(serializers.ModelSerializer):
     class Meta:
@@ -51,11 +52,6 @@ class Sub_Rating_TypesSerializer(serializers.ModelSerializer):
     class Meta:
         model=Sub_Rating_Types
         fields=('rating_type_id','description')
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=User
-        fields=('user_id','first_name','last_name','prefix','position','archived')
 
 class LoggingSerializer(serializers.ModelSerializer):
     class Meta:

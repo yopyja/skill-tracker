@@ -2,19 +2,22 @@ from django.urls import path
 from api import views
 
 urlpatterns = [
-    path('api/', views.TeamApi), 
-    
-    path('api/<int:id>', views.TeamApi),
 
-    path('api/<int:id>', views.OrganizationApi),
+    path('teams/', views.TeamApi),
+    path('teams/<int:id>', views.TeamApi),
 
-    path('api/<int:id>', views.RolesApi),
+    path('orgs/', views.OrganizationApi),
+    path('orgs/<int:id>', views.OrganizationApi),
+
+    path('roles/', views.RolesApi),
+    path('roles/<int:id>', views.RolesApi),
     
     path('api/<int:id>', views.Sub_PermissionsApi),
 
     path('api/<int:id>', views.Granted_PermissionsApi),
 
-    path('api/<int:id>', views.UserApi),
+    path('users/', views.UserApi),
+    path('users/<int:id>', views.UserApi),
 
     path('api/<int:id>', views.Skill_LevelApi),
 
