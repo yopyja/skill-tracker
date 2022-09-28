@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
+from SiteManagement import views
 # import skill_tracker.views
 # import yeet.views
 
@@ -24,13 +25,13 @@ from django.views.generic.base import TemplateView
 
 
 urlpatterns = [
+    path('', views.user_login, name='user_login'),
     path('admin/', admin.site.urls),
-    # path('', include('api.urls')),
     path('api/', include('api.urls')),
     # path('skill_tracker/', include("django.contrib.auth.urls")),
     path('skill_tracker/', include('skill_tracker.urls')),
     path('accounts/', include("django.contrib.auth.urls")),
-    path('', TemplateView.as_view(template_name="home.html"), name="home"),
     path('', include("django.contrib.auth.urls")),
     path('SiteManagement/', include('SiteManagement.urls')),
+
 ]

@@ -12,6 +12,6 @@
                     {{ user_login|crispy }}
                     <input type="submit" value="Log In" class="btn btn-secondary">
                 </form>
-                <p class="text-center">If you already have an account, <a href="/skill_tracker/register/">Register</a> instead.</p>
+                <p class="text-center">If you already have an account, <a href="{% url 'register' %}">Register</a> instead.</p>
         </center>
 {% endblock %}

@@ -8,8 +8,6 @@ from .forms import AddTeamForm, EditUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
-
 from api.models import *
 
 # Create your views here.
@@ -18,10 +16,11 @@ from api.models import *
 #     return render(request=request, template_name="authenticate/login.html", context={"user_login_form":form})
 
 
-def index(request):
-    my_dict = {'insert_content':"skill_tracker app view"}
-    return render(request, 'skill_tracker/index.html', context=my_dict)
+# def index(request):
+#     my_dict = {'insert_content':"skill_tracker app view"}
+#     return render(request, 'skill_tracker/index.html', context=my_dict)
 
+@login_required(login_url='/SiteManagement/user_login/')
 def edit_user(request):
         form = EditUserForm(data=request.POST or None, instance=request.user)        
         if form.is_valid():
@@ -30,10 +29,11 @@ def edit_user(request):
             return redirect("edit_user")    
         return render(request, 'skill_tracker/edit_user.html', {'edit_user':form})
 
-
+@login_required(login_url='/SiteManagement/user_login/')
 def dashboard(request):
     return render(request, 'skill_tracker/dashboard.html', {})
 
+@login_required(login_url='/SiteManagement/user_login/')
 def team_management(request):
     _all_teams = all_teams(request)
     _add_team = add_team(request)

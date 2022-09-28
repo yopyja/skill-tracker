@@ -2,15 +2,18 @@
 
     {% block content %}
 
-        {% comment %} {% load crispy_forms_tags %} {% endcomment %}
+        {% load crispy_forms_tags %}
         <ul>
+            
+
         {% for team in team_list %}
-           <li>{{ team.name }}</li>
+            <li>{{ team.name }}</li>
         {% endfor %}
+
         </ul>
             <form action="" method=POST>
                 {% csrf_token %}
-                {{ add_team }}
-                <input type="submit" value="Submit" class="btn btn-secondary">
-            </form>
+                {{ add_team|crispy }}
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
     {% endblock %}
