@@ -74,11 +74,11 @@ class Assoc_User_Skills(models.Model):
 class Assoc_User_Teams(models.Model):
     team_user = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    team = models.ForeignKey(Team, on_delete=models.PROTECT)
     
 class Assoc_Group_Skills(models.Model):
     group_skill = models.AutoField(primary_key=True)
-    skill_group = models.ForeignKey(Skill_Group, on_delete=models.CASCADE)
-    skill = models.ForeignKey(Skill, on_delete=models.CASCADE)
+    skill_group = models.ForeignKey(Skill_Group, on_delete=models.PROTECT)
+    skill = models.ForeignKey(Skill, on_delete=models.PROTECT)
 
 

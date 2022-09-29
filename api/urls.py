@@ -16,7 +16,7 @@ urlpatterns = [
 
     path('api/<int:id>', views.Granted_PermissionsApi),
 
-    path('users/', views.UserApi),
+    path('users/', views.UserApi, name='allUser'),
     path('users/<int:id>', views.UserApi),
 
     path('api/<int:id>', views.Skill_LevelApi),
@@ -34,4 +34,7 @@ urlpatterns = [
     path('team/<int:id>', views.Assoc_User_TeamsApi),
 
     path('team/<int:id>', views.Assoc_User_SkillsApi),
+
+    path('user_team_skill/', views.UserTeamSkill, name='user_team_skill'),
+    path('user_team_skill/<int:id>', views.UserTeamSkill),
 ]

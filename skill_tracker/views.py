@@ -60,3 +60,10 @@ def add_team(request):
     #     return redirect('team_management_dashboard')
     # return render (request, 'skill_tracker/team_management_dashboard.html', {'add_team':add_team})
     return add_team
+
+@login_required(login_url='/SiteManagement/user_login/')
+def user_management(request):
+    context = {
+        # 'team_list' : _all_teams,
+    }
+    return render(request, 'skill_tracker/user_management.html', context)

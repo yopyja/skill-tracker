@@ -11,7 +11,7 @@ class TeamSerializer(serializers.ModelSerializer):
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
         model=Organization
-        fields=('orgi_id','name','logo')
+        fields=('org_id','name','logo')
 
 class RolesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -66,9 +66,9 @@ class Assoc_User_SkillsSerializer(serializers.ModelSerializer):
 class Assoc_User_TeamsSerializer(serializers.ModelSerializer):
     class Meta:
         model=Assoc_User_Teams
-        fields=('team_user_id','user_id','team_id')
+        fields=('username','email','team_user_id','user_id','team_id')
 
 class Assoc_Group_SkillsSerializer(serializers.ModelSerializer):
     class Meta:
         model=Assoc_Group_Skills
-        fields=('group_skill_id','skill_group_id','skill_id')
+        fields=('id','group_skill_id','skill_group_id','skill_id')

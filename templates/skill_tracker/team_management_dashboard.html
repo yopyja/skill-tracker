@@ -3,24 +3,36 @@
     {% block content %}
 
         {% load crispy_forms_tags %}
+
         <script>
-        $(document).ready(function(){
-            const userPath = $(location).attr("origin")+'/api/users/';
-            console.log(userPath);
-            $('#testTable').DataTable();
-            $('#test').DataTable({
-                // processing: true,
-                // serverSide: true,
-                ajax: {
-                    url: userPath,
-                    type: 'POST',
-                },
+        $(document).ready(function(){                      
+            var userTable = $('#test').DataTable({
+                ajax: "{% url 'allUser' %}",
+                rowId:'id',
                 columns: [
                     { data: 'username' },
                     { data: 'email' },
                 ],
             });
+            userTable.on('click','tr', function(){
+                fillUserModal(userTable.row(this).id());                
+            });
+            $('#testTable').DataTable();            
         });
+        $(document).on('click', '#test tr', function(){
+
+        });
+        function fillUserModal(_userId){
+            $.ajax({
+                url: "{% url 'allUser' %}" + _userId,
+                type: 'GET',
+                dataType : 'json',
+                success: function(response){
+                    console.log(response);
+                    $('#userModal').show();
+                }
+            });
+        }
         </script>
         <br><br>
         <table id="testTable" class="table table-striped">
@@ -37,7 +49,7 @@
                 {% endfor %}
             </tbody>
         </table>
-        <table id="test" class="table">
+        <table id="test" class="table table-striped">
             <thead>
                 <th>Name</th>
                 <th>Description</th>
@@ -48,4 +60,24 @@
                 {{ add_team|crispy }}
             <input type="submit" value="Submit" class="btn btn-secondary">
         </form>
+
+        <div class="modal" id="userModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     {% endblock %}

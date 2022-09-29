@@ -7,12 +7,37 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from api.models import *
 from api.serializers import *
+from django.core import serializers
+from pprint import pprint
+import json
 
 
 # Create your views here.
 def index(request):
     my_dict = {'insert_me':"logging app view"}
     return render(request, 'api/index.html', context=my_dict)
+
+@csrf_exempt
+def UserTeamSkill(request, id=None):
+    if request.method=='GET':
+        if id is None:
+            # data = Assoc_User_Teams.objects.select_related('user', 'team')
+            
+            data = User.objects.prefetch_related(
+                'assoc_user_teams_set'
+                )
+
+
+            # data = User.objects.prefetch_related(
+            #     'assoc_user_teams_set'
+            #     ).all().values('id','username','first_name','last_name','email')
+            # pprint(data2)
+
+            data_p = list(data.values())
+            data_s = serializers.serialize('json', data)           
+            data_z = '{"data":' + data_s + '}'
+            pprint(data_p)
+            return HttpResponse(data_z, content_type='application/json')
 
 @csrf_exempt
 def TeamApi(request, id=None):
@@ -155,7 +180,8 @@ def UserApi(request, id=None):
         if id is None:            
             user = User.objects.all()
             user_serializer = UserSerializer(user,many=True)
-            return JsonResponse(user_serializer.data, safe=False)
+            check = (user_serializer.data)
+            return JsonResponse({'data':user_serializer.data}, safe=False)
         elif id is not None:
             user = User.objects.get(id=id)
             user_serializer = UserSerializer(user)

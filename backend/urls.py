@@ -30,8 +30,9 @@ urlpatterns = [
     path('api/', include('api.urls')),
     # path('skill_tracker/', include("django.contrib.auth.urls")),
     path('skill_tracker/', include('skill_tracker.urls')),
-    path('accounts/', include("django.contrib.auth.urls")),
-    path('', include("django.contrib.auth.urls")),
+    # path('accounts/', include("django.contrib.auth.urls")),
+    # path('', include("django.contrib.auth.urls")),
     path('SiteManagement/', include('SiteManagement.urls')),
+    # path('nippits/', include('SiteManagement.urls')),
 
 ]

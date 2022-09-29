@@ -1,0 +1,140 @@
+{% extends "skill_tracker/base.html" %}
+
+    {% block content %}
+
+        {% load crispy_forms_tags %}
+
+        <br><br>
+        <div class="fluid-container">
+            <div class="input-group">
+                <select class="custom-select" id="filter-field">
+                    <option></option>
+                    <option value="username">Username</option>
+                    <option value="email">E-mail</option>
+                    <option value="firstname">First Name</option>
+                    <option value="lastname">Last Name</option>
+                </select>
+                <select id="filter-type" class="custom-select">
+                    <option value="=">=</option>
+                    <option value="<"><</option>
+                    <option value="<="><=</option>
+                    <option value=">">></option>
+                    <option value=">=">>=</option>
+                    <option value="!=">!=</option>
+                    <option value="like">like</option>
+                </select>
+
+                <input id="filter-value" class="input-group-item" style="width:33%" type="text" placeholder="value to filter">
+                <div class="input-group-append" id="button-addon4">
+                    <button id="filter-clear" class="btn btn-outline-secondary" type="button">Clear Filter</button>
+                </div>
+            </div>
+            <br>
+            <div id="example-table"></div>
+        </div>
+
+
+        <div class="modal" id="userModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<script>
+var table = new Tabulator("#example-table", {
+    height:"311px",
+    layout:"fitColumns",
+    // ajaxURL:"{% url 'allUser' %}",
+    ajaxURL:"{% url 'user_team_skill' %}",
+    progressiveLoad:"scroll",
+    paginationSize:20,
+    placeholder:"No Data Set",
+    columns:[
+        {title:"test", field:"model", sorter:"string"},
+        // {title:"Name", field:"username", sorter:"string", width:200},
+        // {title:"Progress", field:"email", sorter:"string"},
+        // {title:"F. Name", field:"firstname", sorter:"string"},
+        // {title:"L. Name", field:"lastname"},
+    ],
+    rowFormatter:function(row){
+        var holderEl = document.createElement("div");
+        var tableEl = document.createElement("div");
+
+        holderEl.style.boxSizing = "border-box";
+        holderEl.style.padding = "10px 30px 10px 10px";
+        holderEl.style.borderTop = "1px solid #333";
+        holderEl.style.borderBotom = "1px solid #333";
+        
+
+        tableEl.style.border = "1px solid #333";
+
+        holderEl.appendChild(tableEl);
+        row.getElement().appendChild(holderEl);
+
+        var subTable = new Tabulator(tableEl, {
+            layout:"fitColumns",
+            // NEEEEED TO GET THE SKILLS IN THE QUERY AND FORMAT IT IN THE SUBTABLE
+            data:row.getData().serviceHistory,
+            columns:[
+            {title:"Date", field:"date", sorter:"date"},
+            {title:"Active", field:"is_active", hozAlign:"center", editor:true, formatter:"tickCross"},
+            ]
+        })
+    },
+});
+
+
+//Define variables for input elements
+var fieldEl = document.getElementById("filter-field");
+var typeEl = document.getElementById("filter-type");
+var valueEl = document.getElementById("filter-value");
+
+//Trigger setFilter function with correct parameters
+function updateFilter(){
+    var filterVal = fieldEl.options[fieldEl.selectedIndex].value;
+    var typeVal = typeEl.options[typeEl.selectedIndex].value;
+
+    var filter = filterVal == "function" ? customFilter : filterVal;
+
+    if(filterVal == "function" ){
+        typeEl.disabled = true;
+        valueEl.disabled = true;
+    }else{
+        typeEl.disabled = false;
+        valueEl.disabled = false;
+    }
+
+    if(filterVal){
+        table.setFilter(filter,typeVal, valueEl.value);
+    }
+}
+
+//Update filters on value change
+document.getElementById("filter-field").addEventListener("change", updateFilter);
+document.getElementById("filter-type").addEventListener("change", updateFilter);
+document.getElementById("filter-value").addEventListener("keyup", updateFilter);
+
+//Clear filters on "Clear Filters" button click
+document.getElementById("filter-clear").addEventListener("click", function(){
+    fieldEl.value = "";
+    typeEl.value = "=";
+    valueEl.value = "";
+
+    table.clearFilter();
+});
+</script>
+    {% endblock %}
