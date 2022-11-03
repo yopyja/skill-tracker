@@ -1,0 +1,71 @@
+.nav-width {
+	margin-top: 15px;
+	min-width: 948px;
+	min-height: 80px;
+	user-select: none;
+	margin-left: 30rem;
+	margin-right: 30rem;
+	margin-bottom: 25px;
+	background: #394264;	
+	border-radius: 5px;
+}
+
+.header-menu {
+	font-size: 17px;
+	line-height: 80px;
+}
+.header-menu li {
+	position: relative;
+}
+.header-menu-tab {
+	padding: 0 27px;
+	display: block;
+	line-height: 74px;
+	font-size: 17px;
+	-webkit-transition: background 0.3s;
+	transition: background 0.3s;
+}
+.header-menu-tab:hover {
+	background: #50597b;
+	border-bottom: 4px solid #11a8ab;
+	text-decoration: none;
+	border-radius: 5px;
+}
+.header-menu-tab .icon {
+	padding-right: 15px;
+}
+.profile-menu {
+	float: right;
+	height: 80px;
+	padding-right: 20px;
+}
+.profile-menu p {
+	font-size: 17px;
+	display: inline-block;
+	line-height: 76px;
+	margin: 0;
+	padding-right: 10px;
+}
+.profile-menu a {
+	padding-left: 5px;
+}
+.profile-menu a:hover {
+	text-decoration: none;
+}
+.small-profile-picture {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.profile-picture {
+	border-radius: 100%;
+	overflow: hidden;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.small-profile-picture {
+	border: 2px solid #50597b;
+	width: 40px;
+	height: 40px;
+}

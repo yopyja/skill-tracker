@@ -1,0 +1,28 @@
+#vueCard {
+  background-color: #394264d8;
+  width: 482px;
+  height: 349px;
+}
+.vue-text-field {
+  label {
+    margin-left: 31px;
+    margin-top: 2px;
+  }
+  input {
+    padding-left: 6px !important;
+  }
+}
+
+#vueDataTable {
+  background-color: #394264;
+  border-radius: 5px;
+  .v-data-table {
+    user-select: none;
+  }
+  .v-data-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

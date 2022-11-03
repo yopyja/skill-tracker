@@ -1,0 +1,49 @@
+.glob-container {
+    margin-top: -58px;
+    position: absolute;
+    scale: 80%;
+    margin-left: 22.25rem;
+    user-select: none;
+    margin-right: 20rem;
+    background: #394264;
+    color: whitesmoke;
+    border-radius: 5px;
+    height: 38rem;
+}
+.glob-header {
+    line-height: 60px;
+    padding-top: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.glob-body {
+    display: flex;
+    height: 320px;
+}
+.glob-panel {
+    width: 50%;
+    float: left;
+    padding: 10px;
+    background: #59638a;
+    border-radius: 5px;
+    height: 148%;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 1rem;
+}
+.glob-panel-header {
+    padding: 2.5%;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.glob-panel-body {
+    display: inline-grid;
+}
+.glob-panel-footer {
+    margin-top: 4px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
